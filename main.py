@@ -28,7 +28,7 @@ JOBS=[
     'id':4,
     'title':'Project Manager',
     'location':'Gift City',
-    'salary':''
+    'salary':'Rs.55,22,000'
   },
   {
     'id':5,
