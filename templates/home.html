@@ -1,75 +1,74 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>  Jovian Careers </title>
-    <!--Apply CSS Style sheet in Header section-->
-    <!-- to nsure that the photo once streteched, is adjusted to show properply -->
-    <!-- when applying CSS to an id linked object use '#' -->   
-    <!-- div tag, 'auto' feature in CSS provides automatic margin/s.-->
-    <style>
-      h1{
-        font-family:sans-serif;
-        font-size:20px;
-        font-weight:normal;
-        color:rgb(180,100,100);
-        text-align: center;
-      }
-      h2{
-        font-family:caps-lock-indicator;
-        font-size:18px;
-        font-weight:normal;
-        color:rgb(180,100,100);
-        text-align:center;
-      }
-     /* p{
-        font-family:sans-serif;
-        font: size 10px;
-        font: weight normal; 
-     }*/
-      
-        /* stylesheet using class */
-        /* this styelsheet gets applied to all <p> tags which have the class="pclass" mentioned */
-        .pclass{
-        font-family:sans-serif;
-        font: size 10px;
-        font: weight normal; 
-        color:Green;
-        }
-              
-      #phot1{
-        width: 100%;
-        height: 320px;
-        image-orientation:center;
-        object-fit: cover;
-      }
-
-      #container{
-        max-width:720px;
-        margin:0 auto 0 auto;
-      }
-      
-    </style>
+<!-- Bootstrap- standard tags to be used -  START -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<!-- Bootstrap -  standard tags to be used - END -->
     
+    <title>  Jovian Careers </title>
   </head>
+  
   <body>
     <!-- In order to make the HTML look better, we apply div tag and set the properties, so that the whole page looks better -->
-    <div id="container">
-     <h1>Hello Everyone...Welcome to Jovian Portal. You will learn about the Job Openings in Jovian...</h1>
-  
-      <img id="phot1" src="https://jovian-careers-website-1.sumanthtalusani.repl.co/static/jovian-careers.jpeg">
-      
-      <h2> About Jovian </h2>
-      <p class="pclass">Welcome to our company Jovian. We are the largest IT company providing technology solutions to the BlueChip companies across the world. We are located in America, Asia, Europe and everywhere. Jovian Concepts delivers unique, on-site consulting services to government, academic, and commercial missions. Our company is composed of professionals with solid management and technical expertise with diversified backgrounds including prominent leaders in academia, military, and national intelligence. </p>
+    <!-- the below class "container" is part of Bootstrap -->
+    <div class="container">
+    <!-- the below class "container" is part of Bootstrap -->
+     <h1 class="text-center">Hello Everyone...Welcome to Jovian Portal. You will learn about the Job Openings in Jovian...</h1>
  
-      <h2>Open Positions</h2>
-      <p class="pclass">Show the Jobs here</p>
+  <!--  the below class is from Bootstrap -->
+      <img class="img-thumbnail"  src="https://jovian-careers-website-1.sumanthtalusani.repl.co/static/jovian-careers.jpeg">
   
-    <!-- applying a separate div tag for the button> -->
-    <!-- Also applying CSS style inline within the tag -->
-      <div style="text-align:center">
-        <button>Contact US</button>
-        <p> Copyright: 2023 - JOVIAN</p>
-      <div>
+  <!-- the below class "container" is part of Bootstrap -->    
+      <h2 class="text-center"> About Jovian </h2>
+      <p class="lead">Welcome to our company Jovian. We are the largest IT company providing technology solutions to the BlueChip companies across the world. We are located in America, Asia, Europe and everywhere. Jovian Concepts delivers unique, on-site consulting services to government, academic, and commercial missions. Our company is composed of professionals with solid management and technical expertise with diversified backgrounds including prominent leaders in academia, military, and national intelligence. </p>
+ 
+      <h2 class="text-center">Open Positions</h2>
+<!-- applying below multiple classes from bootstrap  -->
+<!-- calling the data of python list from main.py into html page -->
+      <!-- Flask has provided the below special syntax to insert dynamic data into your HTML page and should not be confused as provided by HTML or CSS. --> 
+      <!-- <p class="lead mt-2 mb-5">{{myJobs}}</p> ..basic syntax to call dynamic data, which shows unformatted in html page -->
+      <!-- Advanced syntax to call dynamic data and format it properly -->
+      <!-- first we create a Row in <div>, then mention columns within it.
+  <div class="row">
+      <!-- Bootstrap maintains a 12 column layout. So we are using 9 columns below -->
+      
+   {%for job in myJobs%}
+      <div class="col-9">
+            <div>
+              <h4 style="color:rgb(120,120,120);margin-bottom:4px;">
+                <b>JobName</b>: {{job['title']}}
+              </h4>
+            </div>
+            
+            <div>
+              <h4>
+                <b>Location</b>: {{job['location']}}
+              </h4>
+            </div>
+                  
+        <!-- if the salary is empty, do not render salary -->
+        
+              {% if 'salary' in job %}
+               <div class="border-bottom" style="margin-bottom:20px;padding-bottom:20px" >   
+                    <b>Salary:</b> {{job['salary']}}
+               </div>
+       </div>
+              {% endif %}
+        <!-- Bootstrap maintains a 12 column layout. So we are using 3 columns for button field below -->
+       <div class="col-3">
+        <button class="btn btn-success">Apply</button>             
+       </div>
+          <br>
+  {%endfor%}
+  </div>
+          <!-- applying a separate div tag for the button> -->
+    <!-- applying bootstrap at <div> tag level -->  
+      <div class="text-center">
+        <button class="btn btn-primary">Contact US</button>
+        <p class="mt-4 mb-5"> Copyright: 2023 - JOVIAN</p>
+      </div>
    </div>
   </body>
 </html>
