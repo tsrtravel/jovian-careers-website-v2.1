@@ -11,6 +11,12 @@
   </head>
   
   <body>
+    <!-- To include the nav bar(nav.html) into out html page. -->
+    <!-- {% include 'navbar.html' %} -->
+    {% include 'navbar.html' %}
+    
+    
+    
     <!-- In order to make the HTML look better, we apply div tag and set the properties, so that the whole page looks better -->
     <!-- the below class "container" is part of Bootstrap -->
     <div class="container">
@@ -20,9 +26,17 @@
   <!--  the below class is from Bootstrap -->
       <img class="img-thumbnail"  src="https://jovian-careers-website-1.sumanthtalusani.repl.co/static/jovian-careers.jpeg">
   
-  <!-- the below class "container" is part of Bootstrap -->    
+  
       <h2 class="text-center"> About Jovian </h2>
+  <div class="row">
+    <div class="col-9">
       <p class="lead">Welcome to our company Jovian. We are the largest IT company providing technology solutions to the BlueChip companies across the world. We are located in America, Asia, Europe and everywhere. Jovian Concepts delivers unique, on-site consulting services to government, academic, and commercial missions. Our company is composed of professionals with solid management and technical expertise with diversified backgrounds including prominent leaders in academia, military, and national intelligence. </p>
+    </div>
+    <div class="col-3">
+    <img src="/static/teamwork.jfif" style="height:175px; width:175px">
+    </div>
+      
+  </div>
  
       <h2 class="text-center">Open Positions</h2>
 <!-- applying below multiple classes from bootstrap  -->
@@ -58,18 +72,31 @@
               {% endif %}
         <!-- Bootstrap maintains a 12 column layout. So we are using 3 columns for button field below -->
        <div class="col-3">
-        <button class="btn btn-success">Apply</button>             
+         
+        <! -- DIFFERENT METHODS OF CLICKING A BUTTON AND ACTIONING IT -->
+        <!-- <button class="btn btn-success">Apply</button> -->
+        <!-- by clicking the button Apply, the google website is opened --> 
+         <!-- <a href="http://google.com" type="button" class="btn btn-success">Apply</a> -->
+         <a href="mailto:tsr71a@gmail.com?subject=Application for {{job['title']}}" type="button" class="btn btn-success">Apply</a>
        </div>
       
           <br>
   {%endfor%}
-  </div>
+ 
+    <!-- to include the bootstratp footer -->
+    
+    {% include 'footer.html' %}
+    <br>
           <!-- applying a separate div tag for the button> -->
     <!-- applying bootstrap at <div> tag level -->  
-      <div class="text-center">
+   <div class="row">
+      <div class="col-12 text-center">
         <button class="btn btn-primary">Contact US</button>
-        <p class="mt-4 mb-5"> Copyright: 2023 - JOVIAN</p>
-      </div>
-   </div>
+        <h6 align="center"> Copyright: 2023 - JOVIAN</h6>
+      </div> 
+    </div>
+ 
+  </div>
+</div> 
   </body>
 </html>
