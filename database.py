@@ -1,12 +1,17 @@
 from sqlalchemy import create_engine
 from sqlalchemy import text
 #from sqlalchemy import *
+import os
 
 
 #print(sqlalchemy.__version__)   #--- to print the version
 #engine=create_engine("mysql+pymysql://user:pass@some_mariadb/dbname?charset=utf8mb4")    #--- SyntaxError
 
-connection_string="mysql+pymysql://hn7vx0s04pvn9wxmp7ie:pscale_pw_xb6NpEqAKKueUCFBaujNKZHBsfITpw6okTwvBdxcM0R@ap-south.connect.psdb.cloud/joviancareers?charset=utf8mb4"
+# Usual way of defining the connection string
+#connection_string="mysql+pymysql://hn7vx0s04pvn9wxmp7ie:pscale_pw_xb6NpEqAKKueUCFBaujNKZHBsfITpw6okTwvBdxcM0R@ap-south.connect.psdb.cloud/joviancareers?charset=utf8mb4"
+
+# Using the "Secrets" utility in Replit to secure the database login credentials.
+connection_string=os.environ['DB_CONNECTION_STRING']
 
 # get the attributes from the text document MySQL planetscale database connection details.txt in your laptop jovian project folder#
 # get the SSL details from planetscale in main.py tab
