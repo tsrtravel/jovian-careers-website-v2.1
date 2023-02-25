@@ -48,25 +48,25 @@
   <div class="row">
       <!-- Bootstrap maintains a 12 column layout. So we are using 9 columns below -->
       
-   {%for job in myJobs%}
+   {%for job1 in myJobs%}
       <div class="col-9">
             <div>
               <h4 style="color:rgb(120,120,120);margin-bottom:4px;">
-                <b>JobName</b>: {{job['title']}}
+                <b>JobName</b>: {{job1['title']}}
               </h4>
             </div>
             
             <div>
               <h4>
-                <b>Location</b>: {{job['location']}}
+                <b>Location</b>: {{job1['location']}}
               </h4>
             </div>
                   
         <!-- if the salary is empty, do not render salary -->
         
-              {% if 'salary' in job %}
+              {% if 'salary' in job1 %}
                <div class="border-bottom" style="margin-bottom:20px;padding-bottom:20px" >   
-                    <b>Salary:</b> {{job['salary']}}
+                    <b>Salary:</b> {{job1['salary']}}
                </div>
        </div>
               {% endif %}
@@ -77,7 +77,7 @@
         <!-- <button class="btn btn-success">Apply</button> -->
         <!-- by clicking the button Apply, the google website is opened --> 
          <!-- <a href="http://google.com" type="button" class="btn btn-success">Apply</a> -->
-         <a href="mailto:tsr71a@gmail.com?subject=Application for {{job['title']}}" type="button" class="btn btn-success">Apply</a>
+         <a href="mailto:tsr71a@gmail.com?subject=Application for {{job1['title']}}" type="button" class="btn btn-success">Apply</a>
        </div>
       
           <br>
