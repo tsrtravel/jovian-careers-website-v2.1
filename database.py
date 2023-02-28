@@ -1,5 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy import text
+
 import os
 
 
@@ -41,6 +42,22 @@ def load_jobs_from_database():
     #allJobs is a List
     return allJobs  
 
+#load a particular job details
+def load_job_from_db(id):
+  with engine.connect() as conn:
+    
+    connstring=conn.execute(text("select * from jobs where id=id"))
+    thisjob=connstring.all()
+    print("THE thisjob DETAILS ARE.... ", thisjob)
+    print("THE TYPE OF thisjob IS -->",type(thisjob))
+    if len(thisjob)==0:
+      return None
+    else:
+      return thisjob[0]
+      
+    
+
+#------------------------------------------------------------
 
 #   with engine.connect() as conn:
 #   # conn.execute just executes the query abd holds the data which, 

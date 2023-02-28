@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <!-- always include this above the "title" tag -->
+    {% include 'bootstrap.html' %}
+    <title>
+      Jovian Careers     
+    </title>
+  </head>
+  
+  <body>
+    <div class="row">
+    {% include 'navbar.html' %} 
+    </div>
+
+    <!-- class=container must be defined to use Bootstrap GRID SYSTEM -->
+    <div class="container">
+      <br><br>
+      <!-- to display name:value pair together always use the <p> tag. <h> tag would push the value to next line. -->
+      <p class="text-left"><b>Title:</b> <u>{{onejob.title}}</u></p>
+     
+     <p class="text-left"><b>Location:</b> {{onejob.location}}
+     
+     <p class="text-left"><b>Salary:</b> {{onejob.currency}}{{onejob.salary}}
+     
+   
+     <div class="row">
+   <!-- here beacuse we want the details of responsibilities, we use <h> tag instead of <p> tag -->     
+       <h5 class="">Responsibilities:</h5>
+        <div class="text-left"> 
+        <ul>
+           <!-- creating an unordered list, which means we get a bulleted listing -->
+           <!-- splitting based on new line -->
+          {% for line in onejob.responsibilities.split("\n") %} 
+           <li>
+             {{line}}
+           </li>
+          {% endfor %}
+         </ul>
+        </div>  
+     </div>  
+      
+      <div class="row">
+      <h5 class="">Requirements:</h5>
+        <!-- creating an ordered list, which means we get a numbered listing -->
+        <div class="text-left">
+           <ol> 
+            {% for line in onejob.requirements.split("\n") %} 
+              <li> {{onejob.requirements}} </li>
+            {% endfor %}
+          </ol>
+        </div
+      </div>
+     </div>
+    <br><br>
+   
+    <div>
+     {% include 'footer.html' %}
+    </div>
+    
+  </body>
+</html>

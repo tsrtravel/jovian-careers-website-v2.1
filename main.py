@@ -1,7 +1,7 @@
 from flask import Flask, render_template,jsonify
 # you can import a function from database.py to this file as a module/library
 from database import load_jobs_from_database
-
+from database import load_job_from_db
 
 # flask is a module
 # Flask is a class within the module flask
@@ -16,6 +16,16 @@ def hello_world():
 # we created python list which has to be sent as data to the HTML page.
   return render_template('home.html', myJobs=multiplejobs)
 
+# creating a DYNAMIC ROUTE in FLASK. Meaning we want to display the Job details for a particular ID.
+@app.route("/job/<id>")
+def show_job(id):
+  print("The ID is...",id)
+  job=load_job_from_db(id)
+  print("THE JOB DETAILS ARE....",job)
+  if not job:
+    return "Hey...Page not found",404
+  #return jsonify(job)
+  return render_template('loadjobdetails.html',onejob=job)
 
 if __name__=="__main__":
   print("I am inside the If Loop")
